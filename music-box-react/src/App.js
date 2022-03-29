@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
 
+import React, {useState} from 'react';
+import Votacao from './pages/Votacao';
+import api from "./service/api"
 function App() {
+  const [data, setData] = useState([]);
+  function listar(){
+
+  api.get().then(res =>{
+    console.log(res.data)
+    setData(res.data)
+  }).catch(error =>{
+    console.log(error)
+  });
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+      <>
+          <Votacao/>
+        
+      {/* <button onClick={listar}>listar</button>
+      <ul>
+        {data.map((value)=> (
+          <li key={value.id}>{value.musica}: {value.ano}</li>
+        )
+         )}
+      </ul> */}
+      </>
+      
+      </div>
   );
 }
 
