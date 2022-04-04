@@ -1,7 +1,9 @@
 
 import React, {useState} from 'react';
-import Votacao from './pages/Votacao';
+import Musicas from './pages/Musicas';
 import api from "./service/api"
+import './html-css-template/css/reset';
+import './html-css-template/css/style';
 function App() {
   const [data, setData] = useState([]);
   function listar(){
@@ -16,15 +18,8 @@ function App() {
   return (
     <div>
       <>
-          <Votacao/>
-        
-      {/* <button onClick={listar}>listar</button>
-      <ul>
-        {data.map((value)=> (
-          <li key={value.id}>{value.musica}: {value.ano}</li>
-        )
-         )}
-      </ul> */}
+          <Musicas/>
+ 
       </>
       
       </div>
