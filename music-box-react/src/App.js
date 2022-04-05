@@ -2,8 +2,9 @@
 import React, {useState} from 'react';
 import Musicas from './pages/Musicas';
 import api from "./service/api"
-import './html-css-template/css/reset';
-import './html-css-template/css/style';
+import './html-css-template/css/reset.css';
+import './html-css-template/css/style.css';
+
 function App() {
   const [data, setData] = useState([]);
   function listar(){

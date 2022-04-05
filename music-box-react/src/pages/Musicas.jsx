@@ -1,48 +1,39 @@
 import React from "react";
+import ItemMusica from "../components/ItemMusica";
+import ImgNav from "../components/ImgNav";
+
 
 function Musicas() {
-    return(
-        <>
-         <div className="container">
+  return (
+    <>
+    <ImgNav/>
+      
+      <div className="container">
         <div className="filter">
-            <button className="btn">Adicionar</button>
+          <button className="btn">Adicionar</button>
         </div>
-    </div>
+      </div>
 
-    <div className="container">
+      <div className="container">
         <div className="music-boxes">
-
-            <div className="card-music">
-                <div className="icons">
-                    <img src="../imagens/edit-icon.png" alt="" />
-                    <img src="../imagens/delete-icon.png" alt="" />
-                </div>
-                <div className="info-music">
-                    <p>
-                        <strong className="card-title">música: </strong>
-                        <input className="input-music-enable" type="text" value="Musica" />
-                    </p>
-                    <p>
-                        <strong className="card-title">artista: </strong>
-                        <input className="input-music-enable" type="text" value="Teste" />
-                    </p>
-                    <p>
-                        <strong className="card-title">categoria: </strong>
-                        <input className="input-music-enable" type="text" value="Teste" />
-                    </p>
-                    <p>
-                        <strong className="card-title">ano: </strong>
-                        <input className="input-music-enable" type="text" value="Teste" />
-                    </p>
-                    <button className="btn-salvar-disabled">Salvar</button>
-                </div>
-            </div>
-
-           
-
+          <ItemMusica
+          musica="Don´t Stop'Til You Get Enough"
+          artista="Michael Jackson"
+          genero = "Pop"
+          ano={2009}
+          id="1"
+          />
+            <ItemMusica
+          musica="Ela Partiu"
+          artista="Tim Maia"
+          genero = "MPB"
+          ano={1997}
+          id="2"
+          />
+      
         </div>
-    </div>
-        </>
-    )
+      </div>
+    </>
+  );
 }
 export default Musicas;

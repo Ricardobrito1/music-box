@@ -290,7 +290,7 @@ form input {
     text-align: center;
     width: 90%;
     height: 40px;
-    border: solid --font-dark-color 1px;
+    border: solid var(--font-dark-color) 1px;
     margin-bottom: 25px;
     font-family: var(--font-defaut);
 }
@@ -302,7 +302,7 @@ form label {
 
 .add-music h1 {
     margin: 50px 0;
-    font-family: Roboto Mono;
+    font-family: "Roboto Mono";
     font-style: normal;
     font-weight: bold;
     font-size: 64px;
