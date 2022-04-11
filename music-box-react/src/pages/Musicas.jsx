@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ItemMusica from "../components/ItemMusica";
 import ImgNav from "../components/ImgNav";
-
+import api from "../service/api";
 
 function Musicas() {
+  const [musicas, setMusica] = useState([]);
+  useState(() => {
+    api
+      .get()
+      .then((res) => setMusica(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <>
-    <ImgNav/>
-      
+      <ImgNav />
+
       <div className="container">
         <div className="filter">
           <button className="btn">Adicionar</button>
@@ -16,21 +24,16 @@ function Musicas() {
 
       <div className="container">
         <div className="music-boxes">
-          <ItemMusica
-          musica="Don´t Stop'Til You Get Enough"
-          artista="Michael Jackson"
-          genero = "Pop"
-          ano={2009}
-          id="1"
-          />
+          {musicas.map((musica) => (
             <ItemMusica
-          musica="Ela Partiu"
-          artista="Tim Maia"
-          genero = "MPB"
-          ano={1997}
-          id="2"
-          />
-      
+              musica={musica.musica}
+              artista={musica.artista}
+              genero={musica.categoria}
+              ano={musica.ano}
+              id={musica.id}
+              key= {musica.id}
+            />
+          ))}
         </div>
       </div>
     </>
