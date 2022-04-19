@@ -1,7 +1,7 @@
 
 import React, {useState} from 'react';
-import Musicas from './pages/Musicas';
 import api from "./service/api"
+import Rotas from './routes';
 import './html-css-template/css/reset.css';
 import './html-css-template/css/style.css';
 
@@ -19,7 +19,8 @@ function App() {
   return (
     <div>
       <>
-          <Musicas/>
+          {/* <Musicas/> */}
+          <Rotas/>
  
       </>
       

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ItemMusica from "../components/ItemMusica";
 import ImgNav from "../components/ImgNav";
 import api from "../service/api";
 
 function Musicas() {
+  const navigate = useNavigate();
   const [musicas, setMusica] = useState([]);
   useState(() => {
     api
@@ -12,13 +14,16 @@ function Musicas() {
       .catch((err) => console.log(err));
   }, []);
 
+  function irPagAdd() {
+    navigate("/add");
+  }
   return (
     <>
       <ImgNav />
 
       <div className="container">
         <div className="filter">
-          <button className="btn">Adicionar</button>
+          <button className="btn" onClick={irPagAdd}>Adicionar</button>
         </div>
       </div>
 
@@ -30,6 +35,7 @@ function Musicas() {
               artista={musica.artista}
               genero={musica.categoria}
               ano={musica.ano}
+              imagem={musica.imagem}
               id={musica.id}
               key= {musica.id}
             />
