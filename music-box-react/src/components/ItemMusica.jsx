@@ -10,7 +10,7 @@ export default (props) => {
     <div className="card-music" style={imagemFundo}>
       <div className="icons">
         <img src={editIcon} alt="" />
-        <img src={deleteIncon} alt="" />
+        <img onClick={() => props.funcDeletar(props.id)} src={deleteIncon} alt="" />
       </div>
       <div className="info-music">
         <p>

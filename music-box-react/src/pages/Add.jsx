@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Menu from "../components/ImgNav";
 import imagemLateral from "../html-css-template/imagens/half-circles-pink-blue.png"
+
+import api from "../service/api"
 function Add() {
     const {musicaInput, setMusicaInput} = useState("");
     const {artistaInput, setArtistaInput} = useState("");
@@ -8,8 +10,22 @@ function Add() {
     const {anoInput, setAnoInput} = useState("");
     const {imagemInput, setImagemInput} = useState("");
 
-    function cadastrar(params) {
+    function cadastrar(e) {
         e.preventDefault();
+
+        const objMusica ={
+            musica: musicaInput,
+            artista: artistaInput,
+            categoria: generoInput,
+            ano: anoInput,
+            imagem: imagemInput
+        }
+        api.post("/", objMusica).then(res =>{
+            alert("Cadastrada com sucesso")
+        }).catch(err => {
+            alert("Deu ruim")
+            console.log(err)
+        })
     }
     return(
      <>
@@ -35,7 +51,6 @@ function Add() {
                     <label> Imagem (url): <br/><input type="text" value={imagemInput}onChange={e => setImagemInput(e.target.value)} /></label>
                     <br/>
                     <button className="btn" type="submit">Enviar</button>
-
                 </form>
             </div>
 

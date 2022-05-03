@@ -14,6 +14,13 @@ function Musicas() {
       .catch((err) => console.log(err));
   }, []);
 
+  function deletar(id) {
+    api.delete(`/${id}`)
+    .then((res) => alert("Sucesso"))
+    .catch((err) =>{ alert("Deu ruim")
+    console.log(err)}
+    );
+  }
   function irPagAdd() {
     navigate("/add");
   }
@@ -23,7 +30,7 @@ function Musicas() {
 
       <div className="container">
         <div className="filter">
-          <button className="btn" onClick={irPagAdd}>Adicionar</button>
+          <button className="btn" onClick={()=>navigate("/add")}>Adicionar</button>
         </div>
       </div>
 
@@ -38,6 +45,7 @@ function Musicas() {
               imagem={musica.imagem}
               id={musica.id}
               key= {musica.id}
+              funcDeletar = {deletar}
             />
           ))}
         </div>
